@@ -10,7 +10,7 @@ import * as Values from "../../../utils/dropdown_values";
 import Toast from "../../components/Toast";
 import {useHistory} from "react-router-dom";
 import Moment from 'moment';
-import {ItemDetails} from "./style";
+import {FilterTitle, ItemDetails, OrderContent} from "./style";
 
 const Home = () => {
     const history = useHistory();
@@ -179,9 +179,17 @@ const Home = () => {
             <S.Content>
                 <S.FilterContainer>
                     <S.FilterContent>
-                        <S.OrderButton type="button" onClick={orderTransactions}>
-                            {orderButton()}
-                        </S.OrderButton>
+                        <S.FilterTitle>
+                            Filtros
+                        </S.FilterTitle>
+
+                        <S.OrderContent>
+                            Ordenar por valor:
+                            <S.OrderButton type="button" onClick={orderTransactions}>
+                                {orderButton()}
+                            </S.OrderButton>
+                        </S.OrderContent>
+
                         <S.CategoryContent>
                             <S.CategoryLabel>Categoria</S.CategoryLabel>
                             <Dropdown

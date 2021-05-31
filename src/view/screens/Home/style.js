@@ -271,6 +271,8 @@ export const FilterContainer = styled.div`
   }
 `
 
+
+
 export const FilterContent = styled.div`
   padding-left: 40px;
   padding-top: 20px;
@@ -286,6 +288,16 @@ export const FilterContent = styled.div`
     padding-left: 10px;
   }
 
+`
+export const FilterTitle = styled.h2`
+  color: var(--color-green)
+`
+
+export const OrderContent = styled.span`
+  display: flex;
+  align-items: center;
+  color: var(--color-light-green);
+  font-weight:bold;
 `
 
 export const OrderButton = styled.button`
