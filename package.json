@@ -23,7 +23,8 @@
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.4",
     "styled-components": "^5.2.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "webpack": "^5.38.1"
   },
   "scripts": {
     "start": "node server.js",
