@@ -14,6 +14,7 @@ export const FormTitle = styled.h1`
   color: var(--color-grey);
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
 `
 
 export const FormContainer = styled.form`
@@ -26,7 +27,12 @@ export const FormContainer = styled.form`
   margin-bottom: 200px;
   width: 50%;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  
+  @media(max-width: 800px) {
+    width: 100%;
+
+  }
 `
 
 export const DropdownContent = styled.div`
@@ -36,6 +42,11 @@ export const DropdownContent = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media(max-width: 600px) {
+    width: 80%;
+
+  }
 
 `
 

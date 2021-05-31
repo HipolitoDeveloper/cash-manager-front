@@ -10,6 +10,7 @@ import * as Values from "../../../utils/dropdown_values";
 import Toast from "../../components/Toast";
 import {useHistory} from "react-router-dom";
 import Moment from 'moment';
+import {ItemDetails} from "./style";
 
 const Home = () => {
     const history = useHistory();
@@ -128,12 +129,12 @@ const Home = () => {
 
     const renderItems = filteredTransactions.map(transaction => (
         <S.Item>
-            <S.DeleteButton type="button" onClick={() => {
-                removeProduct(transaction);
-                setFilteredTransactions(transactions);
-                calculateTransactionTotal();
-            }}><Icon.Delete style={{fontSize: 30, color: "var(--color-dark-green)"}}/></S.DeleteButton>
             <S.ItemContent>
+                <S.DeleteButton type="button" onClick={() => {
+                    removeProduct(transaction);
+                    setFilteredTransactions(transactions);
+                    calculateTransactionTotal();
+                }}><Icon.Delete style={{fontSize: 30, color: "var(--color-dark-green)"}}/></S.DeleteButton>
                 <S.ItemInformation>
                     <S.ItemDate>
                         {Moment(transaction.date).format('DD/MM/YYYY - HH:MM')}
@@ -146,24 +147,26 @@ const Home = () => {
                     </S.ItemCategory>
                 </S.ItemInformation>
                 <S.ItemDetails>
-                    {(transaction.type == "ENT") ? (
-                        <S.ItemType>
-                            Entrada
-                        </S.ItemType>
-                    ) : (
-                        <S.ItemType>
-                            Saída
-                        </S.ItemType>
-                    )}
-                    <S.ItemValue>
-                        R${transaction.value}
-                    </S.ItemValue>
-                    <S.ItemButtons>
-                        <S.EditButton type="button" onClick={() => {
-                            history.push(`/editar/${transaction.id}`)
-                        }}><Icon.Edit
-                            style={{fontSize: 30, color: "var(--color-light-green)"}}/></S.EditButton>
-                    </S.ItemButtons>
+                    <S.ItemDetailsContent>
+                        {(transaction.type == "ENT") ? (
+                            <S.ItemType>
+                                Entrada
+                            </S.ItemType>
+                        ) : (
+                            <S.ItemType>
+                                Saída
+                            </S.ItemType>
+                        )}
+                        <S.ItemValue>
+                            R${transaction.value}
+                        </S.ItemValue>
+                    </S.ItemDetailsContent>
+
+                    <S.EditButton type="button" onClick={() => {
+                        history.push(`/editar/${transaction.id}`)
+                    }}><Icon.Edit className={"edit-icon"}
+                    /></S.EditButton>
+
                 </S.ItemDetails>
             </S.ItemContent>
         </S.Item>
@@ -203,6 +206,7 @@ const Home = () => {
                     {renderItems}
                     {filteredTransactions.length === 0 && <S.EmptyMessage>
                         Você não possui transações nessa categoria!
+                        Para adicionar uma transação, clique no botão abaixo.
                     </S.EmptyMessage>}
                 </S.ListContent>
                 <S.TotalTransactionsContainer>

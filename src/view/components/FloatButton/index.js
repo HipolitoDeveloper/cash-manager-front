@@ -34,21 +34,21 @@ export const FloatButton = () => {
             <GlobalStyle/>
             {isOpen ? (
                 <MainButton
-                    iconActive={<Icon.Menu style={{fontSize: 20, color: "white"}}/>}
+                    iconActive={<Icon.Add style={{fontSize: 20, color: "white"}}/>}
                     background="var(--color-dark-green)"
                     onClick={() => history.push("/criador")}
                     size={56}/>
             ) : (
                 page === 0 ? (
                     <MainButton
-                        iconResting={<Icon.PlusOneOutlined style={{fontSize: 20, color: "white"}}/>}
+                        iconResting={<Icon.Menu style={{fontSize: 20, color: "white"}}/>}
                         background="var(--color-dark-green)"
                         onClick={() => history.push("/")}
                         size={56}
                     />
                 ) : (
                     <MainButton
-                        iconResting={<Icon.Edit style={{fontSize: 20, color: "white"}}/>}
+                        iconResting={<Icon.Menu style={{fontSize: 20, color: "white"}}/>}
                         background="var(--color-dark-green)"
                         onClick={() => history.push("/")}
                         size={56}
